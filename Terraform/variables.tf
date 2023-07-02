@@ -37,5 +37,51 @@ variable "avail_zone_3" {
 
 variable "avail_zone_4" {
   type = string
-   description = "Availability zone of backup private subnet"
+  description = "Availability zone of backup private subnet"
+}
+
+variable "private_route" {
+  type = string
+  description = "Route for private subnet"
+
+}
+
+
+variable "dockerhub_credentials" {
+  type = string
+  description = "URL to ARN of secrets manager."
+  sensitive = true
+}
+
+variable "codestar_connector_credentials" {
+  type = string
+  description = "ARN of codestar connector"
+}
+
+variable "env" {
+  type = string
+  description = "Environment of infrastructure."
+}
+
+variable "company" {
+  type = string
+  description = "Name of organization owning resources"
+}
+
+variable "access_key" {
+  type = string
+  description = "AWS Access Key to AWS resources"
+  sensitive = true
+}
+
+variable "secret_key" {
+  type = string
+  description = "AWS Secret Key"
+  sensitive = true
+}
+
+variable "aws_account" {
+  type = string
+  description = "AWS account number"
+  sensitive = true
 }
