@@ -11,7 +11,7 @@ resource "aws_iam_role" "pipe_role" {
         Principal = {
           Service = "codepipeline.amazonaws.com"
         }
-      },
+      }
     ]
   })
 
@@ -20,7 +20,6 @@ resource "aws_iam_role" "pipe_role" {
 data "aws_iam_policy_document" "pipeline-policy-document" {
   statement {
     sid = "1"
-
     actions   = ["codestar-connections:UseConnection"]
     resources = ["*"]
     effect    = "Allow"
@@ -28,7 +27,8 @@ data "aws_iam_policy_document" "pipeline-policy-document" {
 
   statement {
     sid     = ""
-    actions = ["cloudwatch:*", "s3:*", "codebuild:*"]
+    actions = ["cloudwatch:*", "s3:*", "codebuild:*", "iam:*"]
+    resources = ["*"]
     effect  = "Allow"
   }
 
@@ -57,23 +57,36 @@ resource "aws_iam_role_policy_attachment" "pipe-fullaccess_attachment" {
 
 resource "aws_iam_role" "codebuild_role" {
   name = "${var.company}-codebuild-role"
-
-  assume_role_policy = <<EOF
-    {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "codebuild.amazonaws.com"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "codepipeline.amazonaws.com"
+        }
       },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}
+    ]
+  })
+#   assume_role_policy = <<EOF
+#     {
+#   "Version": "2012-10-17",
+#   "Statement": [
+#     {
+#       "Action": "sts:AssumeRole",
+#       "Principals": {
+#         "Service": "codebuild.amazonaws.com",
+#         "AWS": "arn:aws:iam::373157733381:user/architect"
+#       },
+#       "Effect": "Allow",
+#       "Sid": ""
+#     }
+#   ]
+# }
 
-  EOF
+#   EOF
 }
 
 data "aws_iam_policy_document" "codebuild-policy" {
@@ -88,7 +101,7 @@ data "aws_iam_policy_document" "codebuild-policy" {
 
 resource "aws_iam_policy" "codebuild-policy" {
   name        = "${var.company}-codebuild-policy"
-  path        = "/"
+  
   description = "Codebuild policy"
   policy      = data.aws_iam_policy_document.codebuild-policy.json
 }
@@ -101,4 +114,26 @@ resource "aws_iam_role_policy_attachment" "codebuild-attachment" {
 resource "aws_iam_role_policy_attachment" "fullaccess_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/IAMFullAccess"
   role       = aws_iam_role.codebuild_role.id
+}
+
+resource "aws_iam_role_policy_attachment" "codebuild-attachment-iam" {
+  policy_arn = aws_iam_policy.codebuild-policy.arn
+  role       = aws_iam_role.codebuild_role_2.id
+}
+
+resource "aws_iam_role" "codebuild_role_2" {
+  name = "${var.company}-codebuild-role"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          AWS = "arn:aws:iam::373157733381:user/architect"
+        }
+      },
+    ]
+  })
 }
