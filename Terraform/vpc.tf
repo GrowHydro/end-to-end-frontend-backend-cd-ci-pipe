@@ -7,7 +7,7 @@ resource "aws_vpc" "main" {
 
 resource "aws_db_subnet_group" "hydro" {
   name       = "homegrown-hydro"
-  subnet_ids = [aws_subnet.public.id, aws_subnet.secondary.id, aws_subnet.private.id]
+  subnet_ids = [aws_subnet.public.id, aws_subnet.secondary.id, aws_subnet.private.id, aws_subnet.secondary-private.id]
 
 }
 

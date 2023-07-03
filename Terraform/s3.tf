@@ -1,32 +1,41 @@
 resource "aws_s3_bucket" "codepipeline_artifacts" {
   bucket = "${var.company}-pipeline-artifacts"
   acl    = "private"
-} 
-
-resource "aws_s3_bucket_policy" "bucket_policy" {
-  bucket = aws_s3_bucket.front-end.id
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Sid       = "PublicReadGetObject"
-        Effect    = "Allow"
-        Principal = "*"
-        Action    = "s3:*",
-        Resource  = "${aws_s3_bucket.front-end.arn}/*"
-      },
-    ]
-  })
 }
 
+# resource "aws_s3_bucket_policy" "bucket_policy" {
+#   bucket = aws_s3_bucket.front-end.id
+#   policy = jsonencode({
+#     Version = "2012-10-17"
+#     Statement = [
+#       {
+#         Sid       = "PublicReadGetObject"
+#         Effect    = "Allow"
+#         Principal = "*"
+#         Action    = "s3:*"
+#         Resource  = "*"
+#       },
+#     ]
+#   })
+# }
+
+# resource "aws_s3_bucket_public_access_block" "this" {
+#   bucket = "${aws_s3_bucket.front-end.bucket}"
+
+#   block_public_acls       = true
+#   block_public_policy     = true
+#   ignore_public_acls      = true
+#   restrict_public_buckets = true
+# }
 
 resource "aws_s3_bucket" "front-end" {
   bucket = "${var.company}-react-front-end-${var.env}"
+  
 
   versioning {
     enabled = true
   }
- server_side_encryption_configuration {
+  server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
         sse_algorithm = "AES256"
@@ -34,7 +43,7 @@ resource "aws_s3_bucket" "front-end" {
     }
   }
 
-  
+
   website {
     index_document = "index.html"
     error_document = "error.html"

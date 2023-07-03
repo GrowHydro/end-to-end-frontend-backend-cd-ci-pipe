@@ -20,7 +20,7 @@ resource "aws_security_group" "rds" {
 }
 
 resource "aws_security_group" "web" {
-  name   = "${var.org}-web-sg"
+  name   = "${var.company}-web-sg"
   vpc_id = aws_vpc.main.id
 
   ingress {

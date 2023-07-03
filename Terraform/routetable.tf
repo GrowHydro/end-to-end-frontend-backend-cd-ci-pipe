@@ -40,7 +40,7 @@ resource "aws_route" "private" {
 
 resource "aws_route_table_association" "private" {
   depends_on     = [aws_subnet.private, aws_route_table.private]
-  route_table_id = aws_route.private.id
+  route_table_id = aws_route_table.private.id
   subnet_id      = aws_subnet.private.id
 }
 

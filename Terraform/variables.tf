@@ -9,11 +9,11 @@ variable "region" {
   description = "Region to deploy infrastructure into."
 }
 
-variable "azs" {
-  type        = list(string)
-  description = "Availability zones for creation in VPC."
-  default     = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1e"]
-}
+# variable "azs" {
+#   type        = list(string)
+#   description = "Availability zones for creation in VPC."
+#   default     = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1e"]
+# }
 
 variable "default_route" {
   type        = string
@@ -45,7 +45,6 @@ variable "private_route" {
   description = "Route for private subnet"
 
 }
-
 
 variable "dockerhub_credentials" {
   type        = string
