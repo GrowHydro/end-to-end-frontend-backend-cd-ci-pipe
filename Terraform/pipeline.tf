@@ -1,3 +1,3 @@
-resource "aws_codepipeline" "name" {
-  
+resource "aws_codepipeline" "cicd" {
+
 }

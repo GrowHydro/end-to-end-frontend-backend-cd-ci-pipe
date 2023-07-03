@@ -18,37 +18,37 @@ resource "aws_iam_role" "pipe_role" {
 }
 
 data "aws_iam_policy_document" "pipeline-policy-document" {
-    statement {
-      sid = "1"
+  statement {
+    sid = "1"
 
-      actions = ["codestar-connections:UseConnection"]
-      resources = ["*"]
-      effect = "Allow"
-    }
+    actions   = ["codestar-connections:UseConnection"]
+    resources = ["*"]
+    effect    = "Allow"
+  }
 
-    statement {
-      sid = ""
-      actions = ["cloudwatch:*", "s3:*", "codebuild:*"]
-      effect = "Allow"
-    }
-    
+  statement {
+    sid     = ""
+    actions = ["cloudwatch:*", "s3:*", "codebuild:*"]
+    effect  = "Allow"
+  }
+
 }
 
 resource "aws_iam_policy" "pipeline-policy" {
-  name = "${var.company}-pipeline-policy"
-  path = "/"
+  name        = "${var.company}-pipeline-policy"
+  path        = "/"
   description = "Pipeline policy"
-  policy = data.aws_iam_policy_document.pipeline-policy-document.json
+  policy      = data.aws_iam_policy_document.pipeline-policy-document.json
 }
 
 resource "aws_iam_role_policy_attachment" "pipe-attachment" {
   policy_arn = aws_iam_policy.pipeline-policy.arn
-  role = aws_iam_role.pipe_role.id
+  role       = aws_iam_role.pipe_role.id
 }
 
 resource "aws_iam_role_policy_attachment" "pipe-fullaccess_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/IAMFullAccess"
-  role = aws_iam_role.pipe_role.id
+  role       = aws_iam_role.pipe_role.id
 }
 
 ##
@@ -76,29 +76,29 @@ resource "aws_iam_role" "codebuild_role" {
   EOF
 }
 
-data "aws_iam_policy_document" "codebuild-policy"{
-     statement{
-        sid = ""
-        actions = ["logs:*", "s3:*", "codebuild:*", "secretsmanager:*","iam:*"]
-        resources = ["*"]
-        effect = "Allow"
-    }
+data "aws_iam_policy_document" "codebuild-policy" {
+  statement {
+    sid       = ""
+    actions   = ["logs:*", "s3:*", "codebuild:*", "secretsmanager:*", "iam:*", "ecs:*", "apigateway:*", "lambda:*"]
+    resources = ["*"]
+    effect    = "Allow"
+  }
 
 }
 
 resource "aws_iam_policy" "codebuild-policy" {
-  name = "${var.company}-codebuild-policy"
-  path = "/"
+  name        = "${var.company}-codebuild-policy"
+  path        = "/"
   description = "Codebuild policy"
-  policy = data.aws_iam_policy_document.codebuild-policy.json
+  policy      = data.aws_iam_policy_document.codebuild-policy.json
 }
 
 resource "aws_iam_role_policy_attachment" "codebuild-attachment" {
- policy_arn = aws_iam_policy.codebuild-policy.arn
- role = aws_iam_role.codebuild_role.id 
+  policy_arn = aws_iam_policy.codebuild-policy.arn
+  role       = aws_iam_role.codebuild_role.id
 }
 
 resource "aws_iam_role_policy_attachment" "fullaccess_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/IAMFullAccess"
-  role = aws_iam_role.codebuild_role.id
+  role       = aws_iam_role.codebuild_role.id
 }
