@@ -28,3 +28,8 @@ variable "pipeline_bucket_name" {
   type        = string
   description = "Name of Artifact for front-end s3 bucket"
 }
+
+variable "env" {
+  type = string
+  description = "Name of environment of infrastructure."
+}

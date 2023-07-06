@@ -1,5 +1,5 @@
 resource "aws_codepipeline" "front-end-codepipeline" {
-  name     = "${var.projectname}-pipeline"
+  name     = "${var.company}-pipeline"
   role_arn = aws_iam_role.bucket_role.arn
 
   artifact_store {

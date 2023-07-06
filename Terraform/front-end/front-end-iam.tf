@@ -38,8 +38,8 @@ resource "aws_iam_role_policy" "bucket_policy" {
       "Resource": [
 "${aws_s3_bucket.pipeline_bucket.arn}",
 "${aws_s3_bucket.pipeline_bucket.arn}/*",
-"${aws_s3_bucket.app_bucket.arn}",
-"${aws_s3_bucket.app_bucket.arn}/*"
+"${aws_s3_bucket.front_end.arn}",
+"${aws_s3_bucket.front_end.arn}/*"
 ]
     },
     {
