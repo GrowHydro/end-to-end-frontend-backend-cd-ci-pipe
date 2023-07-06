@@ -37,17 +37,17 @@ resource "aws_iam_role" "pipe_role" {
 
 data "aws_iam_policy_document" "pipeline-policy-document" {
   statement {
-    sid = "1"
+    sid       = "1"
     actions   = ["codestar-connections:UseConnection"]
     resources = ["*"]
     effect    = "Allow"
   }
 
   statement {
-    sid     = ""
-    actions = ["cloudwatch:*", "s3:*", "codebuild:*", "iam:*"]
+    sid       = ""
+    actions   = ["cloudwatch:*", "s3:*", "codebuild:*", "iam:*"]
     resources = ["*"]
-    effect  = "Allow"
+    effect    = "Allow"
   }
 
 }
@@ -80,7 +80,7 @@ resource "aws_iam_role_policy_attachment" "pipe-fullaccess_attachment" {
 
 resource "aws_iam_role" "codebuild_role" {
   name = "${var.company}-codebuild-role"
-  
+
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -94,23 +94,23 @@ resource "aws_iam_role" "codebuild_role" {
       },
     ]
   })
-#   assume_role_policy = <<EOF
-#     {
-#   "Version": "2012-10-17",
-#   "Statement": [
-#     {
-#       "Action": "sts:AssumeRole",
-#       "Principals": {
-#         "Service": "codebuild.amazonaws.com",
-#         "AWS": "arn:aws:iam::373157733381:user/architect"
-#       },
-#       "Effect": "Allow",
-#       "Sid": ""
-#     }
-#   ]
-# }
+  #   assume_role_policy = <<EOF
+  #     {
+  #   "Version": "2012-10-17",
+  #   "Statement": [
+  #     {
+  #       "Action": "sts:AssumeRole",
+  #       "Principals": {
+  #         "Service": "codebuild.amazonaws.com",
+  #         "AWS": "arn:aws:iam::373157733381:user/architect"
+  #       },
+  #       "Effect": "Allow",
+  #       "Sid": ""
+  #     }
+  #   ]
+  # }
 
-#   EOF
+  #   EOF
 }
 
 data "aws_iam_policy_document" "codebuild-policy" {
@@ -124,8 +124,8 @@ data "aws_iam_policy_document" "codebuild-policy" {
 }
 
 resource "aws_iam_policy" "codebuild-policy" {
-  name        = "${var.company}-codebuild-policy"
-  
+  name = "${var.company}-codebuild-policy"
+
   description = "Codebuild policy"
   policy      = data.aws_iam_policy_document.codebuild-policy.json
 }

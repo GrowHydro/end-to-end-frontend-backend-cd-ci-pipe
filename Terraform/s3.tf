@@ -30,7 +30,7 @@ resource "aws_s3_bucket" "codepipeline_artifacts" {
 
 resource "aws_s3_bucket" "front-end" {
   bucket = "${var.company}-react-front-end-${var.env}"
-  
+
 
   versioning {
     enabled = true
