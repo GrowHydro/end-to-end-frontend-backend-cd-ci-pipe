@@ -1,4 +1,4 @@
-resource "aws_codebuild_project" "front-end" {
+resource "aws_codebuild_project" "front_end" {
   name         = "react"
   description  = "CICD for react front-end"
   service_role = aws_iam_role.codebuild_role.arn
@@ -20,7 +20,7 @@ resource "aws_codebuild_project" "front-end" {
   }
   source {
     type      = "CODEPIPELINE"
-    buildspec = file("BuildSpec/react-buildspec.yml")
+    buildspec = file("../BuildSpec/react-buildspec.yml")
   }
 
 

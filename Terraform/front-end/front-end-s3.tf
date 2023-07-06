@@ -1,17 +1,17 @@
-resource "aws_s3_bucket" "front-end" {
+resource "aws_s3_bucket" "front_end" {
   bucket = "${var.company}-react-front-end-${var.env}"
 
   cors_rule {
     allowed_methods = ["GET"]
     allowed_origins = ["*"]
     allowed_headers = ["*"]
-   }
+  }
 
   force_destroy = true
 
   versioning {
     enabled = true
-   }
+  }
 
   server_side_encryption_configuration {
     rule {
@@ -19,18 +19,18 @@ resource "aws_s3_bucket" "front-end" {
         sse_algorithm = "AES256"
       }
     }
-   }
+  }
 
 
   website {
     index_document = "index.html"
     error_document = "index.html"
-   }
+  }
 
 }
 
 resource "aws_s3_bucket_policy" "app_bucket_policy" {
-  bucket = aws_s3_bucket.front-end.id
+  bucket = aws_s3_bucket.front_end.id
 
   policy = <<EOF
 {
@@ -41,7 +41,7 @@ resource "aws_s3_bucket_policy" "app_bucket_policy" {
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "${aws_s3_bucket.app_bucket.arn}/*"
+            "Resource": "${aws_s3_bucket.front_end.arn}/*"
         }
     ]
 }
@@ -56,8 +56,8 @@ resource "aws_cloudfront_distribution" "website_cdn" {
   enabled = true
 
   origin {
-    origin_id   = "origin-bucket-${aws_s3_bucket.front-end.id}"
-    domain_name = aws_s3_bucket.front-end.website_endpoint
+    origin_id   = "origin-bucket-${aws_s3_bucket.front_end.id}"
+    domain_name = aws_s3_bucket.front_end.website_endpoint
 
     custom_origin_config {
       http_port              = "80"
@@ -75,7 +75,7 @@ resource "aws_cloudfront_distribution" "website_cdn" {
     min_ttl                = "0"
     default_ttl            = "300"
     max_ttl                = "1200"
-    target_origin_id       = "origin-bucket-${aws_s3_bucket.front-end.id}"
+    target_origin_id       = "origin-bucket-${aws_s3_bucket.front_end.id}"
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
 

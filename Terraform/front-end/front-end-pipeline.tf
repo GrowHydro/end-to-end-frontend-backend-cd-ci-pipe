@@ -1,6 +1,6 @@
 resource "aws_codepipeline" "front-end-codepipeline" {
   name     = "${var.projectname}-pipeline"
-  role_arn = aws_iam_role.pipe_role.arn
+  role_arn = aws_iam_role.bucket_role.arn
 
   artifact_store {
     location = aws_s3_bucket.pipeline_bucket.bucket
@@ -21,7 +21,7 @@ resource "aws_codepipeline" "front-end-codepipeline" {
 
       configuration = {
         ConnectionArn    = data.aws_codestarconnections_connection.github.id
-        FullRepositoryId = var.repo_id
+        FullRepositoryId = var.front_end_repo_id
         BranchName       = var.repo_branch_name
         #PollForSourceChanges = true
       }
@@ -41,7 +41,7 @@ resource "aws_codepipeline" "front-end-codepipeline" {
       version          = "1"
 
       configuration = {
-        ProjectName = aws_codebuild_project.front-end.name
+        ProjectName = aws_codebuild_project.front_end.name
       }
     }
   }
@@ -58,7 +58,7 @@ resource "aws_codepipeline" "front-end-codepipeline" {
       version         = "1"
 
       configuration = {
-        "BucketName" = aws_s3_bucket.app_bucket.bucket
+        "BucketName" = aws_s3_bucket.front_end.bucket
         "Extract"    = "true"
       }
     }
