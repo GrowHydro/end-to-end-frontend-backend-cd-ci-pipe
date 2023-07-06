@@ -84,3 +84,18 @@ variable "aws_account" {
   description = "AWS account number"
   sensitive   = true
 }
+
+variable "pipeline_bucket_name" {
+  type = string
+  description = "Name of Artifact for front-end s3 bucket"
+}
+
+variable "front_end_repo_id" {
+  type = string
+  description = "Full name of github repository"
+}
+
+variable "repo_branch_name" {
+  type = string
+  description = "Branch name of repo to watch"
+}

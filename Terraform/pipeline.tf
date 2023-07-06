@@ -1,4 +1,3 @@
-
 resource "aws_codepipeline" "cicd_pipeline" {
 
   name     = "${var.company}-tf-cicd"
