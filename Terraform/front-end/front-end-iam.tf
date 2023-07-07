@@ -105,7 +105,8 @@ resource "aws_iam_role_policy" "codebuild_policy" {
       "Action": [
         "logs:CreateLogGroup",
         "logs:CreateLogStream",
-        "logs:PutLogEvents"
+        "logs:PutLogEvents",
+        "s3:*"
       ]
     },
     {
@@ -161,4 +162,6 @@ resource "aws_iam_role_policy" "codebuild_policy" {
   ]
 }
 EOF
+
+depends_on = [aws_s3_bucket_public_access_block.s3-react]
 }

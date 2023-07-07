@@ -48,6 +48,23 @@ resource "aws_s3_bucket_policy" "app_bucket_policy" {
 EOF
 }
 
+resource "aws_s3_bucket_ownership_controls" "s3_bucket_acl_ownership" {
+  bucket = aws_s3_bucket.front_end.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+  depends_on = [aws_s3_bucket_public_access_block.s3-react]
+}
+
+resource "aws_s3_bucket_public_access_block" "s3-react" {
+  bucket = aws_s3_bucket.front_end.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
 resource "aws_cloudfront_origin_access_identity" "cloudfront_oia" {
   comment = "example origin access identify"
 }

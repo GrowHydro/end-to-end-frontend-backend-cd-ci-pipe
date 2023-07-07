@@ -1,0 +1,25 @@
+version: 0.1
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - ls -la
+      - echo installing "node modules"
+      - yarn install
+
+  pre_build:
+    commands:
+      - echo installing source npm dependencies ...
+      - yarn build
+      - ls -la
+
+  post_build:
+    commands:
+      - echo deployment completed on `date`
+
+artifacts:
+    files:
+      - '**/*'
+    base-directory: 'build'  

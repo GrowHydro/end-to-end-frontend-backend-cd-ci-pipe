@@ -20,7 +20,7 @@ resource "aws_codebuild_project" "front_end" {
   }
   source {
     type      = "CODEPIPELINE"
-    buildspec = file("../BuildSpec/react-buildspec.yml")
+    buildspec = file("./react-buildspec.yml")
   }
 
 
