@@ -1,0 +1,36 @@
+.hydro{
+    background: url("/pictures/industry-hydro.jpg") no-repeat top right fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100%;
+    box-shadow: 2px 2px 1px black;
+    width: 230px;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 25px;
+}
+.hydro:hover{
+    cursor:pointer;
+}
+
+.hydro-room{
+    background: url("/pictures/background.webp") no-repeat bottom center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100%;
+    box-shadow: 2px 2px 1px black;
+    width: 230px;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 25px;   
+}

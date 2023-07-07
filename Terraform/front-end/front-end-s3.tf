@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "front_end" {
-  bucket = "${var.company}-react-front-end-${var.env}"
+  bucket = "${var.company}-${var.env}-react-front-end"
 
   cors_rule {
     allowed_methods = ["GET"]
@@ -40,7 +40,7 @@ resource "aws_s3_bucket_policy" "app_bucket_policy" {
             "Sid": "PublicReadGetObject",
             "Effect": "Allow",
             "Principal": "*",
-            "Action": "s3:GetObject",
+            "Action": "s3:*",
             "Resource": "${aws_s3_bucket.front_end.arn}/*"
         }
     ]

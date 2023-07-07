@@ -30,6 +30,6 @@ variable "pipeline_bucket_name" {
 }
 
 variable "env" {
-  type = string
+  type        = string
   description = "Name of environment of infrastructure."
 }

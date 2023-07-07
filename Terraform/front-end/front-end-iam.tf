@@ -4,7 +4,7 @@
 ##
 #
 resource "aws_iam_role" "bucket_role" {
-  name = "${var.company}-codepipeline-role"
+  name = "${var.company}-${var.env}-codepipeline-role"
 
   assume_role_policy = <<EOF
 {
@@ -23,7 +23,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "bucket_policy" {
-  name = "${var.company}-codepipeline-policy"
+  name = "${var.company}-${var.env}-codepipeline-policy"
   role = aws_iam_role.bucket_role.id
 
   policy = <<EOF
@@ -67,7 +67,7 @@ EOF
 ##
 #
 resource "aws_iam_role" "codebuild_role" {
-  name = "${var.company}-codebuild-role"
+  name = "${var.company}-${var.env}-codebuild-role"
 
   assume_role_policy = <<EOF
 {
@@ -90,7 +90,7 @@ data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
 resource "aws_iam_role_policy" "codebuild_policy" {
-  name = "${var.company}-codebuild-policy"
+  name = "${var.company}-${var.env}-codebuild-policy"
   role = aws_iam_role.codebuild_role.id
 
   policy = <<EOF
