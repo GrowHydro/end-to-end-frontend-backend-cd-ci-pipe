@@ -1,0 +1,43 @@
+$small: 360px;
+$medium: 700px;
+$large: 2000px;
+$iphonex-h: 812px;
+$iphonex-w: 375px;
+$iphone-14h: 852px;
+$iphone-14w: 393px;
+$galaxy-h: 780px;
+$galaxy-w: 360px;
+
+body{
+    height: 100Vh;
+    background: url("../pictures/bluewater.webp") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    @media only screen and (min-width: $small) and (max-width: $medium){
+        width: 100vw !important;
+        
+    }
+}
+#root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url("../pictures/calm.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    margin: 0% !important;
+    padding: 0% !important;
+    @media only screen and (min-width: $small) and (max-width: $medium){
+        width: 100vw !important;
+        
+    }
+}
+
+.error{
+    background-size: cover !important;
+    border-color: red;
+    border-style: dashed;
+    border-width: 5px;
+}

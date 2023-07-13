@@ -1,0 +1,72 @@
+$ahoy: '../pictures/navigation.jpg';
+$farm: '../pictures/potfarm.png';
+$hex: '../pictures/hex.jpg';
+
+$small: 360px;
+$medium: 700px;
+$medium-large: 900px;
+$large: 2000px;
+$iphonex-h: 812px;
+$iphonex-w: 375px;
+$iphone-14h: 852px;
+$iphone-14w: 393px;
+$galaxy-h: 780px;
+$galaxy-w: 360px;
+
+.Nav{
+    background-image: url($farm), url($hex); 
+    background-position: left !important;
+    height: 15vh !important;
+    border-radius: 15%;
+    background-blend-mode: lighten !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    justify-content: center;
+    @media only screen and (min-width: $small) and (max-width: $medium){
+        background-size: $medium;
+        height: 24vh;
+        background-position: left;
+        width: 100% !important;
+        display: inline-flex;
+        .not-on-sm{
+            display: none;
+        }
+        a{
+            font-size: medium !important;
+        }
+     }
+    @media only screen and (min-width: $medium-large) and (max-width: $large){ 
+        height: 130px;
+    }
+
+}
+
+.Nav > a{
+    margin: 5px; 
+    background-color: rgb(0, 0, 0);
+    color: rgb(125, 227, 125);
+    font-size: xx-large;
+}
+
+.Nav > a:hover{
+    color: yellow;
+}
+
+.Nav > a:visited{
+    color: orange;
+}
+
+.Nav > a:visited:hover{
+    color: gold;
+}
+
+.compass{
+    height: 50px;
+    margin-top: 0%;
+    
+    @media only screen and (min-width: $small) and (max-width: $medium){ 
+        position: absolute;
+        
+    }
+}

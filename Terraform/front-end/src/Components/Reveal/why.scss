@@ -1,0 +1,19 @@
+$small: 360px;
+$medium: 700px;
+$large: 2000px;
+
+.reveal-y-content {
+@media only screen and (min-width: $small) and (max-width: $medium){ 
+    
+    width: 85%;
+    height: 100%;
+    margin-top: 4rem;
+    padding-top: 4rem;
+    .reveal-y-content {
+      padding-top: 3rem !important;
+      margin-top: 3rem !important;
+      bottom: 20%;
+       
+    }
+} 
+}

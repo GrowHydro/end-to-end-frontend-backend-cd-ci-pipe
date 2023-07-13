@@ -1,35 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
+import { Provider } from 'react-redux';
+import store from './redux/store'
+import {BrowserRouter as Router} from 'react-router-dom';
 import './index.css';
-import './css/growroom.scss'
-import App from './App';
+import './scss/index.scss'
+import 'bootstrap/dist/css/bootstrap.css';
+import WelcomeGreenRoom from './WelcomeGreenRoom';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import GrowRoom from './GrowRoom.js'
-import HydroHome from './components/HydroHome';
-import LinksBar from './components/LinkBar';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <div className='d-flex-column justify-content-center'>
-            <nav className='d-flex-column justify-content-center'>
-                <div className='d-flex justify-content-center h-50'>
-                <Link className="mx-2" to="/">Home</Link>
-                <Link className="mx-2" to='/HydroHome'>Hydroponics</Link>
-                </div>
-            </nav>
-  <Routes>
-    <Route index element={<GrowRoom />} />
-    <Route path='/' element={<GrowRoom />}/>
-        <Route index element={<HydroHome />} />
-        <Route path='HydroHome' element={<HydroHome />} />
-  </Routes>
-  </div>
-  </BrowserRouter>
+  <Provider store={store}>
+    <Router>
+      <WelcomeGreenRoom />
+    </Router>
+  </Provider>
 );
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorkerRegistration.unregister();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

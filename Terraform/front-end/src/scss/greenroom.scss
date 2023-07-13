@@ -1,0 +1,33 @@
+$farm: '../pictures/potfarm.png';
+$verticalPot: "../pictures/vertical-cannabis-growing-system.jpg";
+$small: 360px;
+$medium: 700px;
+$large: 2000px;
+$iphonex-h: 812px;
+$iphonex-w: 375px;
+$iphone-14h: 852px;
+$iphone-14w: 393px;
+$galaxy-h: 780px;
+$galaxy-w: 360px;
+
+.greenroom{
+    display: flex;
+    flex-direction: column;
+    background: url("../pictures/calm.jpg") no-repeat center fixed, url($farm) no-repeat center fixed;
+    background-blend-mode: hue;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    justify-content: center;
+
+    @media only screen and (min-width: $small) and (max-width: $medium){
+            background-size: auto !important;
+            
+            
+            // border-color: red;
+            // border-style: dashed;
+            // border-width: 5px;
+        
+    }
+}
+
