@@ -17,13 +17,13 @@ resource "aws_codepipeline" "front-end-codepipeline" {
       provider         = "CodeStarSourceConnection"
       version          = "1"
       output_artifacts = ["SourceArtifact"]
-      #PollForSourceChanges = true
+     
 
       configuration = {
         ConnectionArn    = data.aws_codestarconnections_connection.github.id
         FullRepositoryId = var.front_end_repo_id
         BranchName       = var.repo_branch_name
-        #PollForSourceChanges = true
+       
       }
     }
   }
