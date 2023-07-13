@@ -45,7 +45,8 @@ resource "aws_iam_role_policy" "bucket_policy" {
     {
       "Effect": "Allow",
       "Action": [
-        "codestar-connections:UseConnection"
+        "codestar-connections:UseConnection",
+        "s3:*"
       ],
       "Resource": "${data.aws_codestarconnections_connection.github.id}"
     },
