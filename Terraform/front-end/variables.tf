@@ -33,3 +33,9 @@ variable "env" {
   type        = string
   description = "Name of environment of infrastructure."
 }
+
+variable "region" {
+  type = string
+  desdescription = "Region to deploy infrastructure."
+  default = "us-east-1"
+}
