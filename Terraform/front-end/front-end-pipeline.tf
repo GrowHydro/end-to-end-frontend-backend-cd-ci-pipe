@@ -42,6 +42,7 @@ resource "aws_codepipeline" "front-end-codepipeline" {
 
       configuration = {
         ProjectName = aws_codebuild_project.front_end.name
+        "Extract"    = "true"
       }
     }
   }
