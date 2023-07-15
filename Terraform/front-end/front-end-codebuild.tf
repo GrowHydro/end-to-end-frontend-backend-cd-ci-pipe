@@ -19,6 +19,12 @@ resource "aws_codebuild_project" "front_end" {
     #   credential_provider = "SECRETS_MANAGER"
     # }
   }
+  
+   logs_config {
+    cloudwatch_logs {
+      status = "ENABLED"
+    }
+  }
   source {
     type      = "CODEPIPELINE"
     buildspec = file("./react-buildspec.yml")
