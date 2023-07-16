@@ -23,6 +23,7 @@ resource "aws_codepipeline" "front-end-codepipeline" {
         ConnectionArn    = data.aws_codestarconnections_connection.github.id
         FullRepositoryId = var.front_end_repo_id
         BranchName       = var.repo_branch_name
+        DetectChanges = true
        
       }
     }
@@ -42,7 +43,13 @@ resource "aws_codepipeline" "front-end-codepipeline" {
 
       configuration = {
         ProjectName = aws_codebuild_project.front_end.name
-        "Extract"    = "true"
+        EnvironmentVariables = jsonencode([
+          {
+            name = "PIPELINE_EXECUTION_ID"
+            value = "#{codepipeline.PipelineExecutionId}"
+            type = "PLAINTEXT"
+          }
+        ])
       }
     }
   }
