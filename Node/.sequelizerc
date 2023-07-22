@@ -1,0 +1,9 @@
+const path = require('path');
+
+module.exports = {
+  "config": path.resolve('./server/config', 'config.json'),
+  "models-path": path.resolve('./server/models'),
+  "seeders-path": path.resolve('./server/seeders'),
+  "migrations-path": path.resolve('./server/migrations')
+};
+// sequelize model:create --name Customer --attributes customer_id:integer,name:string,phone_number:integer,email:string
