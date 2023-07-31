@@ -1,4 +1,4 @@
-const Customer = require("../models").customer;
+const Customer = require("../models").Customer;
 
 module.exports = {
     create(req,res){
@@ -17,6 +17,10 @@ module.exports = {
                 customer 
             })
             )
-            .catch(err => res.status(400).send(err));
+            .catch(err =>{
+                console.log(err);
+                return res.status(400).send(err);
+            
+    });
     }
 };

@@ -6,6 +6,6 @@ module.exports = {
   "seeders-path": path.resolve('./server/seeders'),
   "migrations-path": path.resolve('./server/migrations')
 };
-// sequelize model:create --name Customer --attributes customer_id:integer,name:string,phone_number:integer,email:string
+// sequelize model:create --name Customer --attributes customer_id:integer,name:string,phone_number:bigint,email:string
 // sequelize model:create --name Kit --attributes kit_id:integer,name:string,price:integer
 // sequelize model:create --name Order --attributes order_id:integer,invoice_date:date,quantity:integer

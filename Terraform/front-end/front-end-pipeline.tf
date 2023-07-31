@@ -17,14 +17,14 @@ resource "aws_codepipeline" "front-end-codepipeline" {
       provider         = "CodeStarSourceConnection"
       version          = "1"
       output_artifacts = ["SourceArtifact"]
-     
+
 
       configuration = {
         ConnectionArn    = data.aws_codestarconnections_connection.github.id
         FullRepositoryId = var.front_end_repo_id
         BranchName       = var.repo_branch_name
-        DetectChanges = true
-       
+        DetectChanges    = true
+
       }
     }
   }
@@ -45,9 +45,9 @@ resource "aws_codepipeline" "front-end-codepipeline" {
         ProjectName = aws_codebuild_project.front_end.name
         EnvironmentVariables = jsonencode([
           {
-            name = "PIPELINE_EXECUTION_ID"
+            name  = "PIPELINE_EXECUTION_ID"
             value = "#{codepipeline.PipelineExecutionId}"
-            type = "PLAINTEXT"
+            type  = "PLAINTEXT"
           }
         ])
       }

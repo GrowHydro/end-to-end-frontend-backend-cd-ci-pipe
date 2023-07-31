@@ -12,20 +12,20 @@ resource "aws_codebuild_project" "front_end" {
     image                       = "aws/codebuild/standard:3.0"
     type                        = "LINUX_CONTAINER"
     image_pull_credentials_type = "CODEBUILD"
-    
-    privileged_mode             = true
+
+    privileged_mode = true
     # registry_credential {
     #   credential          = var.dockerhub_credentials
     #   credential_provider = "SECRETS_MANAGER"
     # }
   }
 
-   logs_config {
+  logs_config {
     cloudwatch_logs {
       status = "ENABLED"
     }
   }
-  
+
   source {
     type      = "CODEPIPELINE"
     buildspec = file("./react-buildspec.yml")
