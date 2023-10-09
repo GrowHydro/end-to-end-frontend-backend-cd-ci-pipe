@@ -6,6 +6,7 @@ phases:
       nodejs: 12
     commands:
       - cd ./Terraform/front-end
+      - mkdir build
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
       - ls -la
@@ -16,7 +17,6 @@ phases:
     commands:
       - echo installing source npm dependencies ...
       - echo making build folder
-      - mkdir ./build
       - npm run build
       - ls -la
 
