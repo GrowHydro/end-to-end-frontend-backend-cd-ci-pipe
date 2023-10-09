@@ -3,9 +3,9 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 16
     commands:
-      - echo n install 18
+      - echo n install 16
       - echo node --version
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
