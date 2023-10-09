@@ -7,6 +7,7 @@ phases:
     commands:
       - n install 18
       - cd ./Terraform/front-end
+      - echo node --version
       - mkdir build
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
