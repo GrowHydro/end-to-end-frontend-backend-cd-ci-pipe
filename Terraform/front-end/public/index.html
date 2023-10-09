@@ -27,6 +27,39 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script
+  type="text/javascript"
+  src="https://sandbox.web.squarecdn.com/v1/square.js"
+  ></script>
+  <script>
+  
+    const appId = 'sandbox-sq0idb-cF1vDO6CFrkF71S4OZIrgg';
+    const locationId = 'LQXA6DKWDYTD9';
+    
+    async function initializeCard(payments) {
+      const card = await payments.card();
+      await card.attach('#card-container');
+      return card;
+    }
+    
+    document.addEventListener('DOMContentLoaded', async function () {
+      if (!window.Square) {
+        throw new Error('Square.js failed to load properly');
+      }
+      const payments = window.Square.payments(appId, locationId);
+      let card;
+      try {
+        card = await initializeCard(payments);
+      } catch (e) {
+        console.error('Initializing Card failed', e);
+        return;
+      }
+      
+      // Step 5.2: create card payment
+    });
+    
+    
+  </script>
     <title>HomeGrown Hydro - The Ultimate Hydroponics Kit for Growing Marijuana at Home</title>
   </head>
   <body>

@@ -9,6 +9,7 @@ import Contact from './Components/Contact'
 import Sci from './Components/Sci'
 import Kits from './Components/Kits'
 import Kit from './Components/KitCard'
+import Buy from './Components/Buy'
 
 const WelcomeGreenRoom = () =>{
 
@@ -28,6 +29,7 @@ const WelcomeGreenRoom = () =>{
                     <Route path="users" element={<Users />} />
                     <Route path="/sci" element={<Sci />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/buy" element={<Buy />} />
                 </Routes>
                 <Outlet />
             </div>
