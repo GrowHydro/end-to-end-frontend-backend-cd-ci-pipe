@@ -3,14 +3,11 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 16
+      nodejs: 12
     commands:
-      - echo n install 16
-      - echo node --version
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
       - cd ./Terraform/front-end
-      - echo node --version
       - mkdir build
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
