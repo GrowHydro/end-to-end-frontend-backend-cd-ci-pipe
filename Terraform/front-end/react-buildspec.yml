@@ -6,6 +6,8 @@ phases:
       nodejs: 18
     commands:
       - n install 18
+      - rm -rf ./node_modules
+      - rm -rf .package-lock.json
       - cd ./Terraform/front-end
       - echo node --version
       - mkdir build
