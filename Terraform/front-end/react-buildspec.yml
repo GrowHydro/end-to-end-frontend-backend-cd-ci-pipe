@@ -5,7 +5,8 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - n install 18
+      - echo n install 18
+      -echo node --version
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
       - cd ./Terraform/front-end
