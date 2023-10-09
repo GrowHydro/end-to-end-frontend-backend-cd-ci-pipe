@@ -39,3 +39,8 @@ variable "region" {
   description = "Region to deploy infrastructure."
   default     = "us-east-1"
 }
+
+variable "profile" {
+  type        = string
+  description = "Profile of AWS being used"
+}
