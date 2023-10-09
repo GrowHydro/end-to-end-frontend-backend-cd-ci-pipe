@@ -3,8 +3,9 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 12
+      nodejs: 18
     commands:
+      - n install 18
       - cd ./Terraform/front-end
       - mkdir build
       - rm -rf ./node_modules
