@@ -7,12 +7,12 @@ phases:
     commands:
       - ls -la
       - echo installing "node modules"
-      - yarn install
+      - npm install
 
   pre_build:
     commands:
       - echo installing source npm dependencies ...
-      - yarn build
+      - npm build
       - ls -la
 
   post_build:
