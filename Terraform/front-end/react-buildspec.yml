@@ -5,15 +5,19 @@ phases:
     runtime-versions:
       nodejs: 12
     commands:
-      - echo pwd
-      - pwd 
+      - echo pwd && ls -la
+      - pwd
+      - ls -la
       - cd ..
+      - echo pwd && ls -la
+      - pwd
+      - ls -la
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
-      - ls -la
       - cd ./src
-      - echo pwd
+      - echo pwd && ls -la
       - pwd
+      - ls -la
       - echo installing "node modules"
       - npm install
 
