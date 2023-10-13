@@ -16,7 +16,7 @@ output "rds_username" {
   sensitive   = true
 }
 
-output "static_website_endpoint" {
-  description = "static s3 application bucket endpoint"
-  value       = aws_s3_bucket.front-end.website_endpoint
-}
+# output "static_website_endpoint" {
+#   description = "static s3 application bucket endpoint"
+#   value       = aws_s3_bucket.front-end.website_endpoint
+# }

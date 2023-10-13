@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Looking for an easy and convenient way to grow your own marijuana at home? HomeGrown Hydro offers a complete hydroponics kit that lets you plug in and grow pot with ease. Order now and start growing your own dank buds today!" />
-    <meta name="keywords" content="Hydroponics, Growing Marijuana, HomeGrown Hydro, Hydroponics Kit, Easy to Use, Plug and Grow, Dank Buds, Home Growing, Indoor Gardening" />
+    <meta name="keywords" content="Hydroponics, Growing Marijuana, HomeGrown Hydro, Hydroponics Kit, Easy to Use, Plug and Grow, Dank Buds, Home Growing, Indoor cannabis, Plug and Grow Cannabis Kit, Hydroponic Cannabis Kit, Best Cannabis Hydroponic Kit, Grow Cannabis at Home, Plug and Grow Setup, HomeGrown Hydro, Cannabis Cultivation Kit, Easy Cannabis Growing, Hydroponic Gardening, Cannabis Home Growing" />
     <meta property="og:title" content="HomeGrown Hydro - The Ultimate Hydroponics Kit for Growing Marijuana at Home" />
     <meta property="og:description" content="Looking for an easy and convenient way to grow your own marijuana at home? HomeGrown Hydro offers a complete hydroponics kit that lets you plug in and grow pot with ease. Order now and start growing your own dank buds today!" />
     <meta property="og:image" content="%PUBLIC_URL%/weed.png" />
     <meta property="og:url" content="https://www.thchomegrown.com" />
     <meta property="og:type" content="website" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/weed.png" />
+    <meta name="author" content="HomeGrown Hydro">
+    <meta name="robots" content="index, follow">
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -27,39 +29,6 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <script
-  type="text/javascript"
-  src="https://sandbox.web.squarecdn.com/v1/square.js"
-  ></script>
-  <script>
-  
-    const appId = 'sandbox-sq0idb-cF1vDO6CFrkF71S4OZIrgg';
-    const locationId = 'LQXA6DKWDYTD9';
-    
-    async function initializeCard(payments) {
-      const card = await payments.card();
-      await card.attach('#card-container');
-      return card;
-    }
-    
-    document.addEventListener('DOMContentLoaded', async function () {
-      if (!window.Square) {
-        throw new Error('Square.js failed to load properly');
-      }
-      const payments = window.Square.payments(appId, locationId);
-      let card;
-      try {
-        card = await initializeCard(payments);
-      } catch (e) {
-        console.error('Initializing Card failed', e);
-        return;
-      }
-      
-      // Step 5.2: create card payment
-    });
-    
-    
-  </script>
     <title>HomeGrown Hydro - The Ultimate Hydroponics Kit for Growing Marijuana at Home</title>
   </head>
   <body>

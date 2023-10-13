@@ -1,28 +1,30 @@
-import { Routes, Route, Outlet } from 'react-router-dom';
-import Mock from '../pictures/mock.jpg'
-import DogMock from '../pictures/dogmock.jpg'
-import Kit from './KitCard'
-
-const hydrokits = [
-    {id: 1, img: Mock, alt: "A hydroponics kit that is plug and grow", des: "This kit has Reverse Osmosis, Grow Lights, Grow Timer, Water Pump, Hydro Aquaducts for 2 plants", title: "The Professional Stoner"},
-    {id: 2, img: DogMock, alt: "A hydroponics kit that is plug and grow", des: "This kit has Reverse Osmosis, Grow Lights, Grow Timer, Water Pump, Hydro Aquaducts for 4 plants", title: "The Dogg"}
-
-]
+import { Outlet } from 'react-router-dom';
+import { KitData } from '../Data/KitsData';
+import { useNavigate } from 'react-router-dom';
+import '../scss/kit.scss'
 
 const Kits =()=>{
+    const nav = useNavigate();
     const makeKitCards = () =>{
-        return hydrokits.map((k, i) =><span>
-            <Kit id={k.id} img={k.img} alt={k.alt} title={k.title} des={k.des} key={i} />
-            </span>)
+        
+           let cards = KitData.map((k, i) =><span className="d-flex flex-column bg-info my-2 mx-auto w-100">
+                                    <div className="mx-auto" onClick={()=>{nav(`/kits/${k.id - 1}`)}}>
+                                        <h1><a className="hex text-warning">{k.title}</a></h1>
+                                        </div>
+                                    </span>)
+        return cards
     }
 
-    return(<div className="d-flex flex-column justify-content-center mx-auto">
+
+    return( <>
+            <div className="d-flex flex-column justify-content-center mx-auto kits hex">
             <h1 className="mx-auto text-success">Grow Kits</h1>
             <p className="mx-auto fw-bolder fs-3 text-danger">Become your own Dispensary</p>
-            <p className="mx-auto fw-bolder fs-4 text-warning">Grow all the marijuana you want</p>
+            <p className="mx-auto fw-bolder fs-4 text-warning">Grow all the Cannabis you want</p>
             {makeKitCards()}
             <Outlet />
-           </div>)
+           </div>
+           </>)
 }
 
 export default Kits;

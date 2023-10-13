@@ -1,42 +1,47 @@
-import {useState} from 'react';
-import { CreditCard, PaymentForm } from 'react-square-web-payments-sdk';
-import styles from '../styles/home.css';
+import styles from '../css/styles.css';
+import { Outlet } from "react-router-dom"
+import BuyButtons from './BuyButtons'
+import '../scss/buy.scss'
 
-const Buy =()=>{
-    const [amount, updateAmount] = useState(0.0);
-    const [address, updateAddress] = useState('');
-    const [billAddress, updateBillAddress] = useState('');
-    return(<>
-             <div className='mx-auto' id='payment-form'>
-             <div className={styles.container} id='card-container'>
-            <PaymentForm
-              applicationId="sandbox-sq0idb-cF1vDO6CFrkF71S4OZIrgg"
-              cardTokenizeResponseReceived={(EAAAEOjvC4vYb7nODttcQwnsXX_XFXtqDCwgkaZ2jkPw0zTfXGL_V1W2eKJFUFE_, verifiedBuyer) => {
-              console.log('token:', EAAAEOjvC4vYb7nODttcQwnsXX_XFXtqDCwgkaZ2jkPw0zTfXGL_V1W2eKJFUFE_);
-              console.log('verifiedBuyer:', verifiedBuyer);
-            }}
+const Buy = ({checked, handleChange}) =>{
+      
 
-            createVerificationDetails={() => ({
-              amount: '1.00',
-              /* collected from the buyer */
-              billingContact: {
-                addressLines: ['123 Main Street', 'Apartment 1'],
-                familyName: 'Doe',
-                givenName: 'John',
-                countryCode: 'GB',
-                city: 'London',
-              },
-              currencyCode: 'GBP',
-              intent: 'CHARGE',
-            })}
-            
-            locationId='LQXA6DKWDYTD9'
-      >
-      </PaymentForm>
-     <CreditCard />
-    </div>
+      return(<>
+              <div class="body mx-auto">
+                <div className={`${checked ? "d-none" : "w-75"}`}>
+
+                  <div id="ageForm">
+                    <div id="legal" class="d-flex flex-column justify-content-center fw-bolder">
+                    <h1>Terms of Purchase</h1>
+                    <p>This hydroponic system is designed to grow plants and vegetables in a controlled indoor environment. It provides a method for cultivating various types of vegetation using a water-based nutrient solution.</p>
+                    <p>It's important to note that the success of your crops may depend on various factors including proper maintenance, suitable environmental conditions, and appropriate plant selection.</p>
+                    <p>By purchasing and using this hydroponic system, you acknowledge and agree:</p>
+                      <ol class="d-flex flex-column mx-auto w-50">
+                        <li>You are responsible for familiarizing yourself with and adhering to all local laws and regulations related to growing plants, including but not limited to laws regarding the cultivation of certain types of plants, water usage, zoning regulations, and any applicable permits or licenses.</li>
+                        <li>You understand that this system is intended for legal and responsible use only.</li>
+                        <li>You assume all liability and legal responsibility for any consequences arising from the use of this hydroponic system.</li>
+                      </ol>
+                    <p>This disclaimer is intended to inform you of your legal responsibilities and does not absolve you of any legal obligations. If you are uncertain about the legality of growing specific plants or vegetables using this hydroponic system in your jurisdiction, we strongly recommend seeking legal advice.</p>
+                    <p>Please keep in mind that laws and regulations may vary by location, and it is your responsibility to ensure compliance with all relevant laws.</p>
+                 <div className="d-flex flex-row mx-auto">
+                  <label id="ageCheckLabel" for="ageCheck" className="w-100 text-danger fw-bolder fs-1 mx-auto">
+                  {"I agree to the above statement and I am 21 years or older  "}
+                    <input className="checkbox" key={`${checked} checkbox`} type="checkbox" id="ageCheck" value={checked} onClick={handleChange} onChange={handleChange} checked={checked} />
+                  </label>
+                 </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={`${checked ? "mx-auto my-4" : "d-none"}`}>
+             <div className={styles.container}>
+                <BuyButtons />
+              </div>
              </div>
-           </>)
-}
+            <Outlet />
+          </>
+          ) 
+      }
+
 
 export default Buy;

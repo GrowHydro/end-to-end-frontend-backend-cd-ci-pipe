@@ -1,0 +1,52 @@
+.container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    background-color: aliceblue !important;
+  }
+  form{
+   background-image: url('../pictures/calm.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   min-width: 500px;
+  }
+  label{
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+  }
+
+
+      .body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f2f2f2;
+      }
+      #ageForm {
+        text-align: center;
+      }
+      #ageCheckLabel {
+        display: block;
+        margin-bottom: 10px;
+      }
+      #ageCheck {
+        display: inline-block;
+        appearance: none;
+        border: 2px solid #333;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+      #content {
+        display: none;
+        text-align: center;
+      }
+    
+      input{
+       cursor: pointer;
+      }

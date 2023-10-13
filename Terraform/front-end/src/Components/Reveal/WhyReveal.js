@@ -23,6 +23,7 @@ const RevealWhy = () => {
         <p>Become your own Dispensary</p>
       </div>
       <div className={`ybackground ${revealed ? "revealed" : ""}`} />
+      <br/>
     </div>
   );
 };

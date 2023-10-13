@@ -14,11 +14,10 @@ const ContentReveal = () => {
     <div className="content-reveal-container mx-auto my-0 mt-1">
       <div className={`content ${revealed ? "revealed" : ""}`}>
         <h2>Contact Us</h2>
-        <p><img src={Phone} atl="contact" height="60px" /> 555-555-5555</p>
-        <p>
+        <p><img src={Phone} atl="contact" height="60px" className="pr-2" />text/call 602-758-7832</p>
+        <p className="d-inline-flex">
           <img src={Email} alt="email"/>{" "}
-          <a href="mailto:customers.grow.hydro@gmail.com">
-            customers.grow.hydro@gmail.com
+          <a className="fs-6" href="mailto:grow.hydros@gmail.com"> grow.hydros@gmail.com
           </a>
         </p>
       </div>

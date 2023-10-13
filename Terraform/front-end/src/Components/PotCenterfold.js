@@ -11,6 +11,14 @@ import Rainbow from '../pictures/rainbow.jpg'
 import RainbowSm from '../pictures/rainbow-sm.jpg'
 import Lights from '../pictures/lights.jpg'
 import LightsSm from '../pictures/lights-sm.jpg'
+import SunKit from '../pictures/kit_sunlight.png'
+import SunKitSm from '../pictures/kit_sunlight_thum.png'
+import GlowKit from '../pictures/kitglow.png'
+import GlowKitSm from '../pictures/kitglowsm.png'
+import Snoop from '../pictures/snoop.png'
+import SnoopThumb from '../pictures/snoopThumb.png'
+import threePlantKit from '../pictures/3plantkit.png'
+import threePlantKitThumb from '../pictures/3plantkitThumb.png'
 import '../scss/imageGallery.scss'
 
 const images = [{original: GrowRoom, thumbnail: GrowRoomSmall},
@@ -18,15 +26,17 @@ const images = [{original: GrowRoom, thumbnail: GrowRoomSmall},
                 {original: Flower, thumbnail: FlowerSm},
                 {original: GeorgePot, thumbnail: George},
                 {original: Rainbow, thumbnail: RainbowSm},
-                {original: Lights, thumbnail: LightsSm}    
+                {original: Lights, thumbnail: LightsSm},
+                {original: Snoop, thumbnail: SnoopThumb},
+                {original: SunKit, thumbnail: SunKitSm},
+                {original: GlowKit, thumbnail: GlowKitSm},
+                {original: threePlantKit, thumbnail: threePlantKitThumb}
             ];
 
 const PotCenterfold =()=>{
 
     return(<>
-            
                 <ImageGallery autoPlay={true} items={images} />
-            
            </>)
 }
 

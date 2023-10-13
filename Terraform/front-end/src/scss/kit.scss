@@ -1,8 +1,49 @@
+$small: 360px;
+$medium: 700px;
+$medium-large: 900px;
+$large: 2000px;
+$iphonex-h: 812px;
+$iphonex-w: 375px;
+$iphone-14h: 852px;
+$iphone-14w: 393px;
+$galaxy-h: 780px;
+$galaxy-w: 360px;
+
 .hydrokit{
     background-image: url('../pictures/hex.jpg'), url('../pictures/calm.jpg');
     background-blend-mode: screen !important;
+    background-color: black;
     border-radius: 25px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+
+    @media only screen and (min-width: $small) and (max-width: $medium){
+        overflow: hidden;    
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+     }
+}
+
+@media only screen and (min-width: $small) and (max-width: $medium){
+    .hydrokit{
+        
+        overflow: hidden !important;    
+        text-overflow: ellipsis !important;
+        white-space: wrap !important;
+        // display: -webkit-box;
+        -webkit-line-clamp: 3; // max nb lines to show
+        -webkit-box-orient: vertical;
+        width: 100vw !important;
+    }
+    }
+
+.kits{
+    background-color: white;
+}
+
+.hex{
+    background-image: url('../pictures/hex.jpg');
+    background-size: contain;
+    
 }

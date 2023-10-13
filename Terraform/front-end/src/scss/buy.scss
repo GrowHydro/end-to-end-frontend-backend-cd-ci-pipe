@@ -1,0 +1,35 @@
+$small: 360px;
+$medium: 700px;
+$large: 2000px;
+
+.vertical{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: end;
+    background-image: url('../pictures/vertical-farm-2.jpg');
+    background-size: cover;
+    width: 100vw;
+    height: 100%;
+    @media only screen and (min-width: $small) and (max-width: $medium){
+        background-size: contain;
+        background-repeat: repeat;
+       
+        .button{
+            // position: absolute;
+            
+            // bottom: 0;
+            // overflow:visible;
+            // height: 200vh !important;
+            width: auto;
+        }
+        
+        .header{
+            display: none;
+            color: red !important;
+        }
+        .xb{
+            font-weight: bolder;
+        }
+    }
+}

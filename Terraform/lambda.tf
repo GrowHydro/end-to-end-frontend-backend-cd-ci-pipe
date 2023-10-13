@@ -1,8 +1,8 @@
-resource "aws_lambda_function" "api-exe"{
+# resource "aws_lambda_function" "api-exe"{
 
-    environment {
-      variables = {
-        DB_INSTANCE_ADDRESS = aws_db_instance.homegrown.address
-      }
-    }
-}
+#     environment {
+#       variables = {
+#         DB_INSTANCE_ADDRESS = aws_db_instance.homegrown.address
+#       }
+#     }
+# }

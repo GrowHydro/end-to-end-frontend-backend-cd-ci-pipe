@@ -1,0 +1,14 @@
+$small: 360px;
+$medium: 700px;
+$large: 2000px;
+
+@media only screen and (min-width: $small) and (max-width: $medium){
+.customers{
+    max-width: 75vw !important;
+    min-width: 75vw !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+}
+
+}

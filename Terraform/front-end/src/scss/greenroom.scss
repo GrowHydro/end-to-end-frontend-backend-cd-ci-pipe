@@ -13,7 +13,7 @@ $galaxy-w: 360px;
 .greenroom{
     display: flex;
     flex-direction: column;
-    background: url("../pictures/calm.jpg") no-repeat center fixed, url($farm) no-repeat center fixed;
+    // background: url("../pictures/calm.jpg") no-repeat center fixed, url($farm) no-repeat center fixed;
     background-blend-mode: hue;
     -webkit-background-size: cover;
     -moz-background-size: cover;
