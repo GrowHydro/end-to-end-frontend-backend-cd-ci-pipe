@@ -5,6 +5,8 @@ phases:
     runtime-versions:
       nodejs: 12
     commands:
+      - echo pwd
+      - pwd
       - echo installing "node modules"
       - npm install
 
