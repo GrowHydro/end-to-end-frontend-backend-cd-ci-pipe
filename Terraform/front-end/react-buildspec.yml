@@ -11,6 +11,9 @@ phases:
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
       - ls -la
+      - cd src
+      - echo pwd
+      - pwd
       - echo installing "node modules"
       - npm install
 
