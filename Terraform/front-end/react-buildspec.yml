@@ -9,7 +9,9 @@ phases:
       - pwd
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
-      - cd ./Terraform/front-end
+      - cd ./Terraform/front-end 
+      - echo pwd
+      - pwd
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
       - ls -la
