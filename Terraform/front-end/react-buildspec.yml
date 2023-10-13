@@ -6,12 +6,8 @@ phases:
       nodejs: 12
     commands:
       - echo pwd
-      - pwd
-      - rm -rf ./node_modules
-      - rm -rf .package-lock.json
-      - cd ./Terraform/front-end 
-      - echo pwd
-      - pwd
+      - pwd 
+      - cd ..
       - rm -rf ./node_modules
       - rm -rf .package-lock.json
       - ls -la
