@@ -8,16 +8,6 @@ phases:
       - echo pwd && ls -la
       - pwd
       - ls -la
-      - cd ..
-      - echo pwd && ls -la
-      - pwd
-      - ls -la
-      - rm -rf ./node_modules
-      - rm -rf .package-lock.json
-      - cd ./src
-      - echo pwd && ls -la
-      - pwd
-      - ls -la
       - echo installing "node modules"
       - npm install
 
