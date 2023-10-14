@@ -5,7 +5,10 @@ phases:
     runtime-versions:
       nodejs: 12
     commands:
-      - ls -la
+      - echo "what is going on?"
+      - echo ls -la
+      - echo ls Terraform/react-front
+      - ls Terraform/react-front
       - rm -rf node_modules
       - rm -rf package-lock.json
       - echo installing "node modules"
