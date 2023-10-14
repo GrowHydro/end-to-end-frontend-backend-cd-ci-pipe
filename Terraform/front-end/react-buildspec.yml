@@ -5,6 +5,8 @@ phases:
     runtime-versions:
       nodejs: 12
     commands:
+      - rm -rf node_modules
+      - rm -rf package-lock.json
       - echo installing "node modules"
       - npm install
 
