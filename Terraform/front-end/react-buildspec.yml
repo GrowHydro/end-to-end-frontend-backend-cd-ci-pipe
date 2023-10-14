@@ -5,15 +5,16 @@ phases:
     runtime-versions:
       nodejs: 12
     commands:
-      - echo pwd && ls -la
-      - pwd
-      - ls -la
       - echo installing "node modules"
       - npm install
 
   pre_build:
     commands:
-      - echo "WTF"
+      - echo pwd && ls -la
+      - pwd
+      - ls -la
+      - echo "WTF cd Terraform/front-end"
+      - cd Terraform/front-end
       - echo ls -la
       - pwd
       - ls -la
