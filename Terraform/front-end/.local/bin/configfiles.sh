@@ -7,4 +7,4 @@ export NVM_DIR="$HOME/.nvm"
 echo npm i
 npm i
 npm run build
-echo "deployed"
+echo "deployed front-end"
