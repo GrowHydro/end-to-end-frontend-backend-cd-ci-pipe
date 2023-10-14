@@ -11,7 +11,7 @@ phases:
       - rm -rf node_modules
       - rm -rf package-lock.json
       - echo installing "node modules"
-      - npm i eslint-config-react-app
+      - npm install --save-dev @babel/preset-react
       - npm install
 
   pre_build:
@@ -23,6 +23,7 @@ phases:
       - pwd
       - ls -la
       - echo installing source npm dependencies ...
+      - npm install --save-dev @babel/preset-react
       - npm i eslint-config-react-app
       - npm install
       - echo making build folder
