@@ -12,6 +12,7 @@ phases:
       - rm -rf package-lock.json
       - echo installing "node modules"
       - npm install
+      - npm i eslint-config-react-app
 
   pre_build:
     commands:
