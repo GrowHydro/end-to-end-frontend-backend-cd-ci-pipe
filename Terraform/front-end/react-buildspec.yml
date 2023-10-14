@@ -16,6 +16,7 @@ phases:
   pre_build:
     commands:
       - echo cd Terraform/front-end
+      - rm -rf node_modules
       - echo pwd && ls -la
       - pwd
       - ls -la
