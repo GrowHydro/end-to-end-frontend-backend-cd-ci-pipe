@@ -17,6 +17,7 @@ phases:
     commands:
       - echo cd Terraform/front-end
       - rm -rf node_modules
+      - rm -rf package-lock.json
       - echo pwd && ls -la
       - pwd
       - ls -la
