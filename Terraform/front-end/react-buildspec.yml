@@ -6,7 +6,14 @@ phases:
       nodejs: 12
     commands:
       - echo pwd
+      - echo ls -la
       - pwd
+      - ls -la
+      - echo cd Terraform/front-end
+      - cd Terraform/front-end
+      - echo pwd && ls -la
+      - pwd
+      - ls -la
       - echo installing "node modules"
       - npm install
 
