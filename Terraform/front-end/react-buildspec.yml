@@ -20,6 +20,7 @@ phases:
       - pwd
       - ls -la
       - echo installing source npm dependencies ...
+      - npm install
       - echo making build folder
       - npm run build
       - ls -la
