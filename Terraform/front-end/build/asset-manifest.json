@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c0c7e17e.css",
-    "main.js": "/static/js/main.db660fb3.js",
+    "main.css": "/static/css/main.cfe2f62e.css",
+    "main.js": "/static/js/main.dac2af8c.js",
     "static/js/787.de8190c3.chunk.js": "/static/js/787.de8190c3.chunk.js",
     "static/media/George-pot.png": "/static/media/George-pot.30803f60c99c24ad25e9.png",
     "static/media/snoop.png": "/static/media/snoop.de0c79fa07a42384b224.png",
@@ -46,12 +46,12 @@
     "static/media/—Pngtree—vector house icon_4013530.png": "/static/media/—Pngtree—vector house icon_4013530.1f4409cc6bcf9c505afb.png",
     "static/media/calm.jpg": "/static/media/calm.be245d62bbe56c6b5c70.jpg",
     "index.html": "/index.html",
-    "main.c0c7e17e.css.map": "/static/css/main.c0c7e17e.css.map",
-    "main.db660fb3.js.map": "/static/js/main.db660fb3.js.map",
+    "main.cfe2f62e.css.map": "/static/css/main.cfe2f62e.css.map",
+    "main.dac2af8c.js.map": "/static/js/main.dac2af8c.js.map",
     "787.de8190c3.chunk.js.map": "/static/js/787.de8190c3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c0c7e17e.css",
-    "static/js/main.db660fb3.js"
+    "static/css/main.cfe2f62e.css",
+    "static/js/main.dac2af8c.js"
   ]
 }
