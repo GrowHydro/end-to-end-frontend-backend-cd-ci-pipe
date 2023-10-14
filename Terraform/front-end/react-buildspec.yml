@@ -3,8 +3,10 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14
+      nodejs: 16
     commands:
+      - echo "Node version"
+      - node --version
       - echo ls Terraform/front-end
       - ls Terraform/front-end
       - cd Terraform/front-end
